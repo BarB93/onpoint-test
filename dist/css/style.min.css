@@ -1,0 +1,272 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  font-family: Lato;
+  font-size: 15px;
+}
+
+@font-face {
+  font-family: "GothamPro";
+  src: url("../fonts/GothamPro-Regular.woff2") format("woff2");
+  src: url("../fonts/GothamPro-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato-Regular.woff2") format("woff2");
+  src: url("../fonts/Lato-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.slider__wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.slider__slides {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+}
+
+.slider__slides.shifting {
+  -webkit-transition: top 0.2s ease-out;
+  -o-transition: top 0.2s ease-out;
+  transition: top 0.2s ease-out;
+}
+
+.slider__slide {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  cursor: pointer;
+  -webkit-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+}
+
+.slider__dots {
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  z-index: 10;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.slider__dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.slider__dot:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.slider__dot.active {
+  background: #f78b1f;
+}
+
+.slide-1 {
+  position: relative;
+  padding: 75px 0 0 0;
+  width: 100%;
+  height: 100vh;
+  background: url(../../images/slide-1-bg.png) center 0;
+  background-size: cover;
+  color: #0d319c;
+}
+
+.slide-1__title {
+  font-family: GothamPro;
+  margin: 0;
+  font-size: 3.5em;
+  max-width: 860px;
+  padding: 0 0 0 100px;
+}
+
+.circle {
+  position: absolute;
+  border: 2px solid #d4442d;
+  border-radius: 50%;
+}
+
+.circle span {
+  position: absolute;
+  top: -39px;
+  font-size: 1.6rem;
+  white-space: nowrap;
+}
+
+.circle_1 {
+  top: 415px;
+  left: 260px;
+  width: 55px;
+  height: 55px;
+}
+
+.circle_1 span {
+  left: -55px;
+}
+
+.circle_2 {
+  top: 526px;
+  left: 468px;
+  width: 35px;
+  height: 35px;
+}
+
+.circle_2 span {
+  left: -90px;
+}
+
+.circle_3 {
+  top: 235px;
+  left: 535px;
+  width: 105px;
+  height: 105px;
+}
+
+.circle_3 span {
+  top: 37px;
+  left: 119px;
+}
+
+.circle_4 {
+  top: 513px;
+  left: 813px;
+  width: 30px;
+  height: 30px;
+}
+
+.circle_4 span {
+  left: -46px;
+}
+
+.circle::after,
+.circle::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 10%;
+  height: 10%;
+  background: -o-radial-gradient(#e27a1c, #da412c);
+  background: radial-gradient(#e27a1c, #da412c);
+  border: 2px solid red;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+  -webkit-animation-name: circle-pulse;
+  animation-name: circle-pulse;
+  -webkit-animation-duration: 2.5s;
+  animation-duration: 2.5s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+.circle::before {
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+@-webkit-keyframes circle-pulse {
+  0% {
+    width: 10%;
+    height: 10%;
+    opacity: 0.9;
+  }
+  50% {
+  }
+  100% {
+    width: 105%;
+    height: 105%;
+    opacity: 0.1;
+  }
+}
+
+@keyframes circle-pulse {
+  0% {
+    width: 10%;
+    height: 10%;
+    opacity: 0.9;
+  }
+  50% {
+  }
+  100% {
+    width: 105%;
+    height: 105%;
+    opacity: 0.1;
+  }
+}
+
+.slide-2 {
+  width: 100%;
+  height: 100vh;
+  padding: 20% 0 0 0;
+  color: #ffffff;
+  text-align: center;
+  font-size: 2rem;
+  background: url("../images/slide-2-bg.png") center;
+  background-size: cover;
+}
+
+.slide-2__title {
+  font-family: GothamPro;
+  width: 420px;
+  margin: 0 auto;
+}
+
+.slide-3 {
+  width: 100%;
+  height: 100vh;
+}
+
+.slider-second {
+  width: 100%;
+  height: 100vh;
+  padding: 100px 0 0 0;
+  background: url(../images/second-slider/slide-1-bg.png) center;
+  background-size: cover;
+}
+
+.slider-second__title {
+  padding: 0 0 0 80px;
+  font-family: GothamPro;
+  color: #fff;
+  font-size: 2rem;
+}

@@ -1,23 +1,3 @@
-.slide-1 {
-    position: relative;
-    padding: 75px 0 0 0;
-
-    width: 100%;
-    height: 100vh;
-
-    background: url(../../images/slide-1-bg.png) center 0;
-    background-size: cover;
-    color: #0d319c;
-
-    &__title {
-        font-family: GothamPro;
-        margin: 0;
-        font-size: 3.5em;
-        max-width: 860px;
-        padding: 0 0 0 100px;
-    }
-}
-
 .circle {
     position: absolute;
     border: 2px solid #d4442d;

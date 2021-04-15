@@ -1,10 +1,17 @@
-const slider = document.querySelectorAll('#slider'),
-    sliderItems = document.querySelector('#slides'),
-    sliderDots = document.querySelector('#slider-dots')
+//slider
+const sliderItems = document.querySelector('#slides'),
+    sliderDots = document.querySelector('#slider-dots'),
+    //input range
+    inputSlider = document.querySelector('#slider2__range'),
+    //slider2
+    slider2Items = document.querySelector('#slider2__slides')
 
 
+sliderVertical(sliderItems, sliderDots)
+sliderHorizontal(inputSlider, slider2Items)
 
-function slide(wrapper, items, dotsCon = null) {
+
+function sliderVertical(items, dotsCon = null) {
     let posY1 = 0,
         posY2 = 0,
         posInitial,
@@ -12,9 +19,6 @@ function slide(wrapper, items, dotsCon = null) {
         threshold = 100,
         slides = items.getElementsByClassName('slider__slide'),
         slideHeight = slides[0].offsetHeight,
-        slidesLength = items.length,
-        firstSlide = slides[0],
-        lastSlide = slides[slides.length - 1],
         index = 0,
         allowShift = true
 
@@ -84,7 +88,7 @@ function slide(wrapper, items, dotsCon = null) {
         document.onmousemove = null;
     }
 
-    function shiftSlide(dir, action) {
+    function shiftSlide(dir) {
         items.classList.add('shifting')
 
         if (allowShift) {
@@ -128,6 +132,88 @@ function slide(wrapper, items, dotsCon = null) {
 
 }
 
+function sliderHorizontal(selector, items) {
 
-slide(slider, sliderItems, sliderDots)
+    let currentSlide = 0,
+        slideWidth = document.querySelector('.slider2__slide').offsetWidth,
+        allowShift = true
+
+
+    //mouse events
+    selector.addEventListener('mousedown', (e) => {
+        e.stopPropagation()
+    })
+    selector.addEventListener('mousemove', eventMove)
+    selector.addEventListener('mouseup', eventEnd)
+    //toches events
+    selector.addEventListener('touchstart', (e) => {
+        e.stopPropagation()
+    })
+    selector.addEventListener('touchmove', eventMove)
+    selector.addEventListener('touchend', eventEnd)
+
+    function eventMove(e) {
+        e.stopPropagation()
+        setBackground(selector)
+        const x = selector.value
+
+
+        if (x < 30) {
+            shiftSlide(0)
+        } else if (x >= 30 && x <= 70) {
+            shiftSlide(1)
+        } else {
+            shiftSlide(2)
+        }
+    }
+
+    function eventEnd(e) {
+        e.stopPropagation()
+        const x = selector.value
+        if (x < 30) {
+            selector.value = 0
+        } else if (x >= 30 && x <= 70) {
+            selector.value = 50
+        } else {
+            selector.value = 100
+        }
+
+        setBackground()
+    }
+
+
+    items.addEventListener('transitionend', () => {
+        console.log('TTT');
+
+        items.classList.remove('shifting')
+        allowShift = true;
+    })
+
+
+    function setBackground() {
+        const x = selector.value
+        selector.style.background = `linear-gradient(to right, rgba(0, 0, 0, 0) 2%, #D1EAFF 2%, #D1EAFF ${x - 2}%, #435063 ${x - 2}%, #435063 98%, rgba(0, 0, 0, 0) 98%)`
+    }
+
+
+    function shiftSlide(slide) {
+        items.classList.add('shifting')
+        // console.log('shift');
+
+        console.log('currentSlide != slide', currentSlide != slide, 'allowShift', allowShift);
+
+
+        if (currentSlide != slide) {
+
+            items.style.right = (slide * slideWidth) + "px"
+            currentSlide = slide
+
+            allowShift = false
+        }
+
+    }
+
+}
+
+
 

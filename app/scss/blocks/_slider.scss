@@ -4,6 +4,7 @@
     bottom: 0;
     right: 0;
     left: 0;
+    height: 100vh;
 
     &__wrapper {
         overflow: hidden;
@@ -54,5 +55,58 @@
         &.active {
             background: #f78b1f;
         }
+    }
+}
+
+//.slider slide-1
+.slider {
+    .slide-1 {
+        position: relative;
+        padding: 75px 0 0 0;
+
+        width: 100%;
+        height: 100vh;
+
+        background: url(../../images/slide-1-bg.png) center 0 no-repeat;
+        background-size: cover;
+        color: #0d319c;
+
+        &__title {
+            font-family: GothamPro;
+            margin: 0;
+            font-size: 3.5em;
+            max-width: 860px;
+            padding: 0 0 0 100px;
+        }
+    }
+}
+
+//.slider .slide-2
+.slider {
+    .slide-2 {
+        width: 100%;
+        height: 100vh;
+        padding: 20% 0 0 0;
+
+        color: #ffffff;
+        text-align: center;
+        font-size: 2rem;
+        background: url("../images/slide-2-bg.png") center no-repeat;
+        background-size: cover;
+
+        &__title {
+            font-family: GothamPro;
+            width: 420px;
+            margin: 0 auto;
+        }
+    }
+}
+
+//.slider .slide-3
+.slider {
+    .slide-3 {
+        position: relative;
+        width: 100%;
+        height: 100vh;
     }
 }

@@ -8,6 +8,7 @@ const del = require('del')
 const browserSync = require('browser-sync').create()
 const ttf2woff = require("gulp-ttf2woff")
 const ttf2woff2 = require("gulp-ttf2woff2")
+const fileinclude = require("gulp-file-include")
 
 function browsersync() {
     browserSync.init({
@@ -48,6 +49,7 @@ function build() {
         'app/css/style.min.css',
         'app/js/main.min.js',
         'app/*.html',
+        '!app/_*.html',
         'app/fonts/*.{woff,woff2}'
 
     ], { base: 'app' })

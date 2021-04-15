@@ -1,0 +1,88 @@
+.slider2 {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    &__wrapper {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+
+    &__slides {
+        width: 10000px;
+        display: flex;
+        position: relative;
+        right: 0;
+        height: 100%;
+
+        &.shifting {
+            transition: right 0.2s ease-out;
+        }
+    }
+
+    &__slide {
+        flex: 0 0 100vw;
+        height: 100%;
+        padding: 100px 0 0 0;
+
+        &__title {
+            padding: 0 0 0 80px;
+            font-family: GothamPro;
+            color: #fff;
+            font-size: 2rem;
+        }
+
+        &_1 {
+            background: url("../images/second-slider/slide-1-bg.png") center no-repeat;
+            background-size: cover;
+        }
+
+        &_2 {
+            background: url("../images/second-slider/slide-2-bg.png") center no-repeat;
+            background-size: cover;
+        }
+
+        &_3 {
+            background: url("../images/second-slider/slide-3-bg.png") center no-repeat;
+            background-size: cover;
+        }
+    }
+
+    &__range {
+        -webkit-appearance: none;
+
+        position: absolute;
+        bottom: 100px;
+        left: 50%;
+
+        width: 550px;
+        height: 10px;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0) 2%, #435063 2%, #435063 98%, rgba(0, 0, 0, 0) 98%);
+        outline: none;
+        transform: translateX(-50%);
+        z-index: 100;
+
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 45px;
+            height: 50px;
+            background: url("../images/range.png") center no-repeat;
+            background-size: cover;
+            cursor: pointer;
+        }
+
+        &::-moz-range-thumb {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            background: url("../images/range.png") center no-repeat;
+            background-size: cover;
+        }
+    }
+}
