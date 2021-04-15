@@ -17,6 +17,10 @@
         display: flex;
         flex-direction: column;
         position: relative;
+
+        &.shifting {
+            transition: top 0.2s ease-out;
+        }
     }
 
     &__slide {
@@ -25,5 +29,30 @@
         height: 100vh;
         cursor: pointer;
         transition: all 1s;
+    }
+
+    &__dots {
+        position: absolute;
+        top: 50%;
+        right: 40px;
+
+        z-index: 10;
+        transform: translateY(-50%);
+    }
+
+    &__dot {
+        width: 20px;
+        height: 20px;
+
+        border-radius: 50%;
+        background: #fff;
+
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+        &.active {
+            background: #f78b1f;
+        }
     }
 }
