@@ -1,0 +1,118 @@
+.slide-1 {
+    position: relative;
+    padding: 75px 0 0 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background: url(../../images/slide-1-bg.png) center 0;
+    background-size: cover;
+    color: #0d319c;
+
+    &__title {
+        font-family: GothamPro;
+        margin: 0;
+        font-size: 3.5em;
+        max-width: 860px;
+        padding: 0 0 0 100px;
+    }
+}
+
+.circle {
+    position: absolute;
+    border: 2px solid #d4442d;
+    border-radius: 50%;
+
+    span {
+        position: absolute;
+        top: -39px;
+        font-size: 1.6rem;
+
+        white-space: nowrap;
+    }
+}
+
+.circle_1 {
+    top: 415px;
+    left: 260px;
+    width: 55px;
+    height: 55px;
+
+    span {
+        left: -55px;
+    }
+}
+
+.circle_2 {
+    top: 526px;
+    left: 468px;
+    width: 35px;
+    height: 35px;
+
+    span {
+        left: -90px;
+    }
+}
+
+.circle_3 {
+    top: 235px;
+    left: 535px;
+    width: 105px;
+    height: 105px;
+
+    span {
+        top: 37px;
+        left: 119px;
+    }
+}
+
+.circle_4 {
+    top: 513px;
+    left: 813px;
+    width: 30px;
+    height: 30px;
+
+    span {
+        left: -46px;
+    }
+}
+
+.circle::after,
+.circle::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 10%;
+    height: 10%;
+
+    background: radial-gradient(#e27a1c, #da412c);
+    border: 2px solid red;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+
+    transform: translate3d(-50%, -50%, 0);
+    animation-name: circle-pulse;
+    animation-duration: 2.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.circle::before {
+    animation-delay: 1s;
+}
+
+@keyframes circle-pulse {
+    0% {
+        width: 10%;
+        height: 10%;
+        opacity: 0.9;
+    }
+    50% {
+    }
+    100% {
+        width: 105%;
+        height: 105%;
+        opacity: 0.1;
+    }
+}

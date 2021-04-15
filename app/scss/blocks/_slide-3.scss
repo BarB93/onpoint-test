@@ -1,0 +1,19 @@
+.slide-3 {
+    width: 100%;
+    height: 100vh;
+}
+
+.slider-second {
+    width: 100%;
+    height: 100vh;
+    padding: 100px 0 0 0;
+    background: url(../images/second-slider/slide-1-bg.png) center;
+    background-size: cover;
+
+    &__title {
+        padding: 0 0 0 80px;
+        font-family: GothamPro;
+        color: #fff;
+        font-size: 2rem;
+    }
+}
