@@ -124,6 +124,17 @@
             width: 420px;
             margin: 0 auto;
         }
+
+        &__parallax-ice {
+            position: absolute;
+            top: 500px;
+            left: 400px;
+            width: 100px;
+            height: 100px;
+            background: url("../../images/parallax-ice.png") center no-repeat;
+            background-size: cover;
+            transform: translateZ(-1px);
+        }
     }
 }
 

@@ -25,7 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
             slides = items.getElementsByClassName('slider__slide'),
             slideHeight = slides[0].offsetHeight,
             index = 0,
-            allowShift = true
+            allowShift = true,
+            minTopScroll = 30,
+            maxTopScroll = -((slides.length - 1) * slideHeight + minTopScroll)
 
 
         //Mouse events
@@ -75,7 +77,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 posY1 = e.clientY
             }
 
-            items.style.top = (items.offsetTop - posY2) + 'px'
+            const valueShiptTop = items.offsetTop - posY2
+
+            console.log("items.offsetTop", items.offsetTop);
+
+            if (items.offsetTop < minTopScroll && items.offsetTop > maxTopScroll) {
+                items.style.top = (items.offsetTop - posY2) + 'px'
+            }
+
+
         }
 
         function dragEnd(e) {
