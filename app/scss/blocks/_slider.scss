@@ -27,7 +27,6 @@
     &__slide {
         position: relative;
         width: 100%;
-        height: 100vh;
         cursor: pointer;
         transition: all 1s;
     }
@@ -67,8 +66,8 @@
         width: 100%;
         height: 100vh;
 
-        background: url(../../images/slide-1-bg.png) center 0 no-repeat;
-        background-size: cover;
+        background: url(../images/slide-1-bg2.png) center 0 no-repeat;
+        background-size: contain, cover;
         color: #0d319c;
 
         &__title {
@@ -77,6 +76,32 @@
             font-size: 3.5em;
             max-width: 860px;
             padding: 0 0 0 100px;
+        }
+
+        &__swipe-down {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 85px;
+
+            padding: 5px 0 0 0;
+            text-align: center;
+            font-size: 20px;
+            color: #fff;
+
+            &::after {
+                position: absolute;
+                bottom: 10px;
+                left: 50%;
+                content: "";
+                display: block;
+                width: 35px;
+                height: 35px;
+                border-bottom: 3px solid #fff;
+                border-right: 3px solid #fff;
+
+                transform: rotate(45deg) translateX(-50%);
+            }
         }
     }
 }
