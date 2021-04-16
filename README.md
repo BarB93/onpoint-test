@@ -1,4 +1,4 @@
-# Test task for onpoint
+# Test task for Onpoint
 
 Link at deployed task.: https://barovskiy777.github.io/onpoint-test-deployed/
 
