@@ -5,11 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
         //input range
         inputSlider = document.querySelector('#slider2__range'),
         //slider2
-        slider2Items = document.querySelector('#slider2__slides'),
-
-        slide2 = document.querySelector('#slide-2__wrapper')
-
-
+        slider2Items = document.querySelector('#slider2__slides')
 
 
 
