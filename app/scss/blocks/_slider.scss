@@ -66,9 +66,10 @@
         width: 100%;
         height: 100vh;
 
-        background: url(../images/slide-1-bg2.png) center 0 no-repeat;
+        background: url("../images/slide-1-bg.png") center 0 no-repeat;
         background-size: contain, cover;
         color: #0d319c;
+        z-index: 1;
 
         &__title {
             font-family: GothamPro;
@@ -84,6 +85,7 @@
             width: 100%;
             height: 85px;
 
+            font-family: GothamPro;
             padding: 5px 0 0 0;
             text-align: center;
             font-size: 20px;
@@ -109,15 +111,17 @@
 //.slider .slide-2
 .slider {
     .slide-2 {
+        position: relative;
         width: 100%;
         height: 100vh;
         padding: 20% 0 0 0;
+        overflow: hidden;
 
         color: #ffffff;
         text-align: center;
         font-size: 2rem;
         background: url("../images/slide-2-bg.png") center no-repeat;
-        background-size: cover;
+        background-size: contain, cover;
 
         &__title {
             font-family: GothamPro;
@@ -125,15 +129,20 @@
             margin: 0 auto;
         }
 
-        &__parallax-ice {
-            position: absolute;
-            top: 500px;
-            left: 400px;
-            width: 100px;
-            height: 100px;
-            background: url("../../images/parallax-ice.png") center no-repeat;
-            background-size: cover;
-            transform: translateZ(-1px);
+        &__wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+
+            background: url("../images/ices.png") 20px center no-repeat;
+            background-size: 100%;
+
+            @media screen and (min-width: 1025px) {
+                background-size: 1005px 100%;
+                background-position: center;
+            }
         }
     }
 }

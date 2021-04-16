@@ -9,6 +9,7 @@ const browserSync = require('browser-sync').create()
 const ttf2woff = require("gulp-ttf2woff")
 const ttf2woff2 = require("gulp-ttf2woff2")
 const fileinclude = require("gulp-file-include")
+const imagemin = require('gulp-imagemin');
 
 function browsersync() {
     browserSync.init({
@@ -22,7 +23,7 @@ function browsersync() {
 function styles() {
     return src('app/scss/*.scss')
         .pipe(scss({
-            outputStyle: 'expanded',
+            outputStyle: 'compressed',
         }))
         .pipe(concat('style.min.css'))
         .pipe(autoprefixer({
@@ -44,13 +45,26 @@ function scripts() {
         .pipe(browserSync.stream())
 }
 
+function images() {
+    return src('app/images/*/*')
+        .pipe(imagemin({
+            progressive: true,
+            svgPlugins: [{ removeViewBox: false }],
+            interlaced: true,
+            optimizationLevel: 3
+        }))
+        .pipe(dest('dist/images'))
+}
+
 function build() {
     return src([
         'app/css/style.min.css',
         'app/js/main.min.js',
         'app/*.html',
         '!app/_*.html',
-        'app/fonts/*.{woff,woff2}'
+        'app/fonts/*.{woff,woff2}',
+        'app/images/*/*',
+        'app/images/*'
 
     ], { base: 'app' })
         .pipe(dest('dist'))
@@ -78,12 +92,15 @@ function ttftowoff2() {
         .pipe(dest('app/fonts'))
 }
 
+
+
 exports.styles = styles
 exports.watching = watching
 exports.browsersync = browsersync
 exports.scripts = scripts
 exports.cleanDist = cleanDist
+exports.images = images
 
-exports.fonts = series(ttftowoff, ttftowoff2)
+exports.fonts = series(ttftowoff2, ttftowoff)
 exports.build = series(cleanDist, build)
 exports.default = parallel(styles, scripts, browsersync, watching)

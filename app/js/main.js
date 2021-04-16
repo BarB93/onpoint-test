@@ -5,7 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
         //input range
         inputSlider = document.querySelector('#slider2__range'),
         //slider2
-        slider2Items = document.querySelector('#slider2__slides')
+        slider2Items = document.querySelector('#slider2__slides'),
+
+        slide2 = document.querySelector('#slide-2__wrapper')
+
+
+
 
 
     sliderVertical(sliderItems, sliderDots)
@@ -79,7 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const valueShiptTop = items.offsetTop - posY2
 
-            console.log("items.offsetTop", items.offsetTop);
 
             if (items.offsetTop < minTopScroll && items.offsetTop > maxTopScroll) {
                 items.style.top = (items.offsetTop - posY2) + 'px'
@@ -198,7 +202,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         items.addEventListener('transitionend', () => {
-            console.log('TTT');
 
             items.classList.remove('shifting')
             allowShift = true;
@@ -208,7 +211,6 @@ document.addEventListener("DOMContentLoaded", () => {
         shiftSlide(currentSlide, true)
         setBackground()
 
-        console.log('items.style.right', items.style.right);
 
 
 
@@ -220,9 +222,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function shiftSlide(slide, initial = false) {
             items.classList.add('shifting')
-            // console.log('shift');
-
-            console.log('currentSlide != slide', currentSlide != slide, 'allowShift', allowShift);
 
 
             if (initial || currentSlide != slide && allowShift) {
