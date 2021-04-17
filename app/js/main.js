@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
             slideHeight = slides[0].offsetHeight,
             index = 0,
             allowShift = true,
-            minTopScroll = 30,
+            minTopScroll = 5,
             maxTopScroll = -((slides.length - 1) * slideHeight + minTopScroll)
 
 
@@ -52,10 +52,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         function dragStart(e) {
+
             e = e || window.event
             e.preventDefault()
             posInitial = items.offsetTop
-
 
             if (e.type === 'touchstart') {
                 posY1 = e.touches[0].clientY
@@ -64,10 +64,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.onmouseup = dragEnd;
                 document.onmousemove = dragAction;
             }
+
         }
 
         function dragAction(e) {
             e = e || window.event
+
 
             if (e.type === 'touchmove') {
                 posY2 = posY1 - e.touches[0].clientY
@@ -89,6 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         function dragEnd(e) {
+
             posFinal = items.offsetTop
 
             if (posFinal - posInitial < -threshold && index < slides.length - 1) {
@@ -101,6 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             document.onmouseup = null;
             document.onmousemove = null;
+
         }
 
         function shiftSlide(dir) {
