@@ -29,6 +29,11 @@
         width: 100%;
         cursor: pointer;
         transition: all 1s;
+        z-index: 10;
+
+        &_2 {
+            z-index: 5;
+        }
     }
 
     &__dots {
@@ -67,7 +72,7 @@
         height: 100vh;
 
         background: url("../images/slide-1-bg.png") center 0 no-repeat;
-        background-size: contain, cover;
+        background-size: cover;
         color: #0d319c;
         z-index: 1;
 
@@ -121,7 +126,7 @@
         text-align: center;
         font-size: 2rem;
         background: url("../images/slide-2-bg.png") center no-repeat;
-        background-size: contain, cover;
+        background-size: cover;
 
         &__title {
             font-family: GothamPro;
@@ -140,7 +145,8 @@
             background-size: 100%;
 
             @media screen and (min-width: 1025px) {
-                background-size: 1005px 100%;
+                overflow: hidden;
+                background-size: 1025px 700px;
                 background-position: center;
             }
         }
