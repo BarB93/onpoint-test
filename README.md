@@ -1,6 +1,6 @@
 # Test task for Onpoint
 
-Link at deployed task.: https://barovskiy777.github.io/onpoint-test-deployed/
+Link at deployed task.: https://barovskiy777.github.io/onpoint-test/
 
 ### description:
 * VanilaJS without use libraries
