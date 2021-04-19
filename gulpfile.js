@@ -67,11 +67,11 @@ function build() {
         'app/images/*'
 
     ], { base: 'app' })
-        .pipe(dest('dist'))
+        .pipe(dest('docs'))
 }
 
 function cleanDist() {
-    return del('dist')
+    return del('docs')
 }
 
 function watching() {
