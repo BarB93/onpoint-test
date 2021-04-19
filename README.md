@@ -8,6 +8,6 @@ Link at deployed task.: https://barovskiy777.github.io/onpoint-test-deployed/
 ---
 
 ### used additional tools:
-* GULP
-* SCSS
+* Gulp
+* Saas(SCSS)
 
