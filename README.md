@@ -10,4 +10,5 @@ Link at deployed task.: https://barovskiy777.github.io/onpoint-test/
 ### used additional tools:
 * Gulp
 * Saas(SCSS)
+* Jade/Pug
 
