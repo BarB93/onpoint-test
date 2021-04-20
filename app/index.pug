@@ -1,0 +1,44 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Onpoint
+    link(rel='stylesheet' href='css/style.min.css')
+  body
+    .container
+      #slider.slider
+        #wrapper.slider__wrapper
+          #slides.slider__slides
+            .slider__slide
+              .slide-1
+                h1.slide-1__title Всегда ли цели терапии СД2 на поверхности?
+                .circle.circle_1
+                  span Гипогликимия
+                .circle.circle_2
+                  span Осложнения СД
+                .circle.circle_3
+                  span Цель по HbA1c
+                .circle.circle_4
+                  span CC риски
+                .slide-1__swipe-down Листайте вниз
+            .slider__slide.slider__slide_2
+              .slide-2
+                #slide-2__wrapper.slide-2__wrapper
+                h2.slide-2__title Основы терапии — патогенез СД2
+            .slider__slide
+              .slide-3
+                #slider2.slider2
+                  #wrapper-2.slider2__wrapper
+                    #slider2__slides.slider2__slides
+                      .slider2__slide.slider2__slide_1
+                        h3.slider2__slide__title Звенья патогенеза СД2
+                      .slider2__slide.slider2__slide_2
+                        h3.slider2__slide__title Смертельный октет
+                      .slider2__slide.slider2__slide_3
+                        h3.slider2__slide__title Звенья патогенеза СД2
+                  .slider2__range-wrapper
+                    input#slider2__range.slider2__range(type='range' min='1' max='100' value='100')
+        #slider-dots.slider__dots
+    script(src='js/main.min.js')

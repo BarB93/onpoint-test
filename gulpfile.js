@@ -10,6 +10,8 @@ const ttf2woff = require("gulp-ttf2woff")
 const ttf2woff2 = require("gulp-ttf2woff2")
 const fileinclude = require("gulp-file-include")
 const imagemin = require('gulp-imagemin');
+const gulpPug = require('gulp-pug');
+
 
 function browsersync() {
     browserSync.init({
@@ -56,12 +58,21 @@ function images() {
         .pipe(dest('dist/images'))
 }
 
+function pug() {
+    return src('app/*.pug')
+        .pipe(gulpPug({
+            pretty: true
+        }))
+        .pipe(dest('app'))
+        .pipe(browserSync.stream())
+
+}
+
 function build() {
     return src([
         'app/css/style.min.css',
         'app/js/main.min.js',
         'app/*.html',
-        '!app/_*.html',
         'app/fonts/*.{woff,woff2}',
         'app/images/*/*',
         'app/images/*'
@@ -78,6 +89,18 @@ function watching() {
     watch(['app/scss/**/*.scss'], styles)
     watch(['app/js/main.js', '!app/js/main.min.js'], scripts)
     watch('app/*.html').on('change', browserSync.reload)
+}
+
+function watching() {
+    watch(['app/scss/**/*.scss'], styles)
+    watch(['app/js/main.js', '!app/js/main.min.js'], scripts)
+    watch('app/*.html').on('change', browserSync.reload)
+}
+
+function watching() {
+    watch(['app/scss/**/*.scss'], styles)
+    watch(['app/js/main.js', '!app/js/main.min.js'], scripts)
+    watch(['app/*.pug'], pug)
 }
 
 function ttftowoff() {
@@ -100,7 +123,8 @@ exports.browsersync = browsersync
 exports.scripts = scripts
 exports.cleanDist = cleanDist
 exports.images = images
+exports.pug = pug
 
 exports.fonts = series(ttftowoff2, ttftowoff)
 exports.build = series(cleanDist, build)
-exports.default = parallel(styles, scripts, browsersync, watching)
+exports.default = parallel(styles, scripts, browsersync, pug, watching)
